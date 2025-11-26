@@ -1,2 +1,2 @@
 # problems
-Programmatic challenge solutions,
+Programmatic challenge solutions.
