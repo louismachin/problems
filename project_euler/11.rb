@@ -1,3 +1,5 @@
+# https://projecteuler.net/problem=11
+
 grid = File.readlines('./11.txt').map(&:chomp).map { |x| x.split(' ').map(&:to_i) }
 
 max = 0
