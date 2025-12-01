@@ -1,12 +1,12 @@
 # input = File.readlines('1_example.txt').map(&:chomp)
 input = File.readlines('1_input.txt').map(&:chomp)
 
+input.map! { |turn| [turn[0] == 'L' ? -1 : 1, turn[1..-1].to_i] }
+
 def part_one(input)
     dial, zero_count = 50, 0
 
-    input.each do |turn|
-        direction = (turn[0] == 'L' ? -1 : 1)
-        delta = turn[1..-1].to_i
+    input.each do |direction, delta|
         dial = (dial + (direction * delta)) % 100
         zero_count += 1 if dial == 0
     end
@@ -17,9 +17,7 @@ end
 def part_two(input)
     dial, zero_count = 50, 0
 
-    input.each do |turn|
-        direction = (turn[0] == 'L' ? -1 : 1)
-        delta = turn[1..-1].to_i
+    input.each do |direction, delta|
         delta.times do
             dial = (dial + direction) % 100
             zero_count += 1 if dial == 0
