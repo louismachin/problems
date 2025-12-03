@@ -10,7 +10,7 @@ def part_two(input)
         stack, digits_to_remove = [], line.size - 12
         line.map(&:to_i).each do |digit|
             while (stack.any? && (stack.last < digit) && (digits_to_remove > 0)) do
-                stack = stack[0..-2]
+                stack.pop
                 digits_to_remove -= 1
             end
             stack << digit
