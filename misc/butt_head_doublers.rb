@@ -15,7 +15,7 @@ def find_butt_head_doublers(length_bound: 1000)
             # completed loop if the next calculated digit matches the starting digit
             if next_digit == start_digit && carry == 0
                 result = digits.reverse.join.to_i
-                # Verify that shifting the last digit to the front equals its double
+                # verify that shifting the last digit to the front equals its double
                 if (result * 2).to_s == "#{start_digit}#{result.to_s[0..-2]}"
                     puts "Found Doubler ending in #{start_digit}: #{result}"
                     puts "Length: #{result.to_s.length} digits\n\n"
@@ -23,7 +23,7 @@ def find_butt_head_doublers(length_bound: 1000)
             end
             # add digit to sequence and keep building left
             digits << next_digit
-            # brake if sequence doesn't resolve
+            # break if sequence doesn't resolve
             break if digits.length > length_bound
         end
     end
